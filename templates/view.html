@@ -1,0 +1,43 @@
+{% extends 'basic.html' %}
+{% block body_block %}
+<div class="hero-unit">
+    <div class="container">
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <img src="/../media/{{ item.image }}"/>
+            </td>
+
+        </tr>
+        <tr>
+            <td><h4>{{ item.itemname }}</h4></td>
+            <td>Price: {{ item.itemprice }}
+            </td>
+        </tr>
+        <tr>
+            <td><a href="/kartadd/{{ item.itemid }}">Add</a></td>
+            <td><a href="/payment/{{ item.itemprice }}/{{ item.itemid }}/">Buy</a></td>
+        </tr>
+        <tr>
+            <td>
+                {{ item.itemage }} Months Old.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Availability:
+            </td>
+            <td>
+                {{ item.city.cname }}, {{ item.state.sname }}
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>{{ item.description }}</td>
+        </tr>
+    </table>
+  </div>
+
+</div>
+{% endblock %}

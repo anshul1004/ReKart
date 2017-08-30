@@ -1,0 +1,28 @@
+{% extends 'basic.html' %}
+{% block body_block %}
+<div class="hero-unit">
+    <h3>Kart Contents</h3><br>
+    <div class="container">
+    <table>
+        {% for d in data %}
+        <tr>
+            <td colspan="2" style="border: solid 1px lightsteelblue">
+                <img src="/../media/{{ d.image }}" width="250px" height="200px"/>
+            </td>
+        </tr>
+        <tr>
+            <td><h4>{{ d.itemname }}</h4></td>
+            <td>Price: {{ d.itemprice }}
+            </td>
+        </tr>
+        <tr>
+        <form action="/kartdel/{{ d.itemid }}/">
+         <td>   <input type="submit" value="Remove"></td>
+        </form>
+         </tr>
+        {% endfor %}
+    </table>
+    <h2><a href="/payment/{{ amount }}/">Checkout</a></h2>
+    </div>
+</div>
+{% endblock %}

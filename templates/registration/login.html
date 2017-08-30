@@ -1,0 +1,20 @@
+{% extends 'basic.html' %}
+{% block body_block %}
+<div class="hero-unit">
+    <h1>Login to ReKart</h1>
+    <div class="container">
+    <h4 style="color: red">{{ message }}</h4>
+    <form class="form-signin span4" id="login_form" method="post" action="/accounts/login/">
+        <h2 class="form-signin-heading">Please Login</h2>
+        {% csrf_token %}
+        Username: <input type="text" class="input-block-level" placeholder="Username" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" class="input-block-level" placeholder="Password" name="password" value="" size="50" />
+        <br />
+        <button class="btn btn-primary" type="submit">Login</button>
+        <!--<input type="hidden" name="next" value="/home" />-->
+    </form>
+    </div>
+    <a href="/register">Register</a>
+</div>
+{% endblock %}

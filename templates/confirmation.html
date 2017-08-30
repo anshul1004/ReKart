@@ -1,0 +1,15 @@
+{% extends 'basic.html' %}
+{% block body_block %}
+<div class="hero-unit">
+    <div class="container">
+    <h3>Payment</h3>
+    <!-- writes out the form tag automatically -->
+    <br><br>
+        <h1>Are you sure you want to buy this thing?</h1>
+        <form method="post" action="">
+          {{ form }}
+          <input type="submit" value="Yes I am!!">
+        </form>
+    </div>
+</div>
+{%  endblock %}

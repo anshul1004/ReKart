@@ -1,0 +1,35 @@
+{% extends 'basic.html' %}
+{% block body_block %}
+    <div class="hero-unit">
+        <h4>Available Items</h4>
+        <div class="container">
+        <table>
+            {% for d1 in data %}
+        <!--<img src="../media/images/ip_address.png" alt="Image">-->
+            <tr>
+            {% for d in d1 %}
+                <td style="border: solid 1px lightsteelblue">
+                    <img src="../media/{{ d.image }}" width="250px" height="200px"/>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;
+                        {{ d.itemname }}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Rs {{ d.itemprice }}
+                    </p>
+                    &nbsp;&nbsp;&nbsp;<a href="/view/{{ d.itemid }}/">View</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/kartadd/{{ d.itemid }}">Add</a>
+                </td>
+            {% endfor %}
+            </tr>
+    {% endfor %}
+    </table>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% comment %} <form action="/kartadd/{{ d.itemid }}/">
+                <button class="btn btn-primary" type="submit">Add</button>
+            </form>{% endcomment %}

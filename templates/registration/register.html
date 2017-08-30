@@ -1,0 +1,30 @@
+{% extends "basic.html" %}
+
+{% block body_block %}
+<div class="hero-unit">
+<h1>Register for ReKart</h1>
+<div class="container">
+<form class="form-signup span4" action="/register/" method="post">{% csrf_token %}
+    <h2>Create your account</h2>
+
+    {{form.errors.values.0}}                
+        <label>Username</label><br>
+        {{ form.username }}
+
+        {{ form.email.errors }}            
+        <label>E-mail</label><br>
+        {{ form.email }}
+    
+
+        {{form.errors.values.1}}            
+        <label>Password</label><br>                    
+        {{ form.password1 }}
+
+        <label>Password again</label><br>
+        {{ form.password2 }}
+    <br/>
+    <input type="submit" name="submit" class="btn btn-primary" value="Create account">
+</form>
+</div>
+</div>
+{% endblock %}

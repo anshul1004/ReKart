@@ -1,0 +1,75 @@
+{% extends 'basic.html' %}
+{% block body_block %}
+<div class="hero-unit">
+    <h1>Upload</h1>
+    <div class="container">
+    <table>
+    <thead>
+        <tr>
+            <th colspan="2"><h3>Upload New Item Details</h3></th>
+        </tr>
+    </thead>
+    <tbody>
+    <form action="/upload/" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <tr>
+            <td>Name:</td>
+            <td><input id="iname" type="text" name="iname"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td><select id="icat" name="icat">
+            <option>Select</option>
+            {% for cat in categories %}
+                <option value={{ cat.id }}>{{ cat.cname }}</option>
+            {% endfor %}
+        </select></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input id="price" type="number" name="price"></td>
+        </tr>
+        <tr>
+            <td>Item Age(Months):</td>
+            <td><input id="itage" type="number" name="itage">
+        </tr>
+        <tr>
+            <td>Return Days:</td>
+            <td><input id="retdays" type="number" name="retdays"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><textarea id="desc" name="desc" rows="5" cols="40" ></textarea></td>
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td><select id="state" name="state">
+            <option>Select</option>
+            {%  for state in states %}
+                <option value={{ state.sid }}>{{ state.sname }}</option>
+            {%  endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td><select id="city" name="city">
+            <option>Select</option>
+            {%  for city in cities %}
+                <option value={{ city.cid }}>{{ city.cname}}</option>
+            {%  endfor %}
+            </select></td>
+        </tr>
+        <tr>
+            <td>PIN:</td>
+            <td><input id="pin" type="number" name="pin"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><input id="img" type="file" name="img"></td>
+        </tr>
+        <tr>
+            <td><button class="btn btn-primary" type="submit">Upload</button></td></tr>
+    </form>
+    </table>
+ </div>
+</div>
+{% endblock %}
